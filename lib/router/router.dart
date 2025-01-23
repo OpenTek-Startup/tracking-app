@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:learningflutterappwrite/pages/HomePage.dart';
+import 'package:learningflutterappwrite/pages/LoginPage.dart';
 import 'package:learningflutterappwrite/pages/registration.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -18,5 +20,13 @@ final routerProvider = Provider<GoRouter>((ref) {
             },
           );
         }),
+    GoRoute(
+        path: '/login',
+        name: Loginpage.name,
+        builder: (_, __) => Loginpage(
+              loginfunc: (email, password) {
+                print(Text('$email -- $password'));
+              },
+            ))
   ]);
 });
