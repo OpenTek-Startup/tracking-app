@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:learningflutterappwrite/dependencies.dart';
 
 void main() {
+  initDependencies();
   runApp(const MyApp());
 }
 
