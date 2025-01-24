@@ -1,7 +1,10 @@
-import 'package:flutter/foundation.dart';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:learningflutterappwrite/appwrite/appwriteConf.dart';
 import 'package:learningflutterappwrite/pages/HomePage.dart';
 import 'package:learningflutterappwrite/pages/LoginPage.dart';
 import 'package:learningflutterappwrite/pages/registration.dart';
@@ -16,7 +19,9 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) {
           return Registration(
             onsignUp: (name, email, password) async {
-              print('$name -- $email -- $password');
+              final appwrite = GetIt.instance.get<Appwriteconf>();
+              final user = await appwrite.createAccount(name, email, password);
+              print(jsonEncode(user ?? '{}'));
             },
           );
         }),

@@ -1,9 +1,26 @@
 import 'package:appwrite/appwrite.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:appwrite/models.dart';
+import 'package:learningflutterappwrite/env.dart';
+
 class Appwriteconf {
   Client client = Client();
+  late final Account account;
 
   Appwriteconf() {
-    client.setEndpoint(dotenv.env['endpoint']!).setProject(dotenv.env['databaseId']);
+    EnvironmentVar env = EnvironmentVar();
+    client.setEndpoint(env.endpoint).setProject(env.databaseId);
+    account = Account(client);
+  }
+
+  Future<User?> createAccount(
+      String name, String email, String password) async {
+    try {
+      final user = await account.create(
+          userId: 'unique()', email: email, password: password);
+      return user;
+    } on AppwriteException catch (e) {
+      print(e.message);
+      return null;
+    }
   }
 }
