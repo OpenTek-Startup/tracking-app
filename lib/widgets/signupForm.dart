@@ -66,13 +66,12 @@ class Signupform extends StatelessWidget {
                   }
                 },
                 child: const Text('Créer')),
-
-            Row(
+            Column(
               children: [
                 Text('Vous avez deja un compte?'),
-                TextButton(onPressed: ()=>{
-                  context.goNamed(Loginpage.name)
-                }, child: Text('Connectez vous')),
+                TextButton(
+                    onPressed: () => {context.goNamed(Loginpage.name)},
+                    child: Text('Connectez vous')),
               ],
             )
           ],
