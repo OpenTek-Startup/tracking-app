@@ -23,4 +23,15 @@ class Appwriteconf {
       return null;
     }
   }
+
+  Future<Session?> createSession(String email, String password) async {
+    try {
+      final session = await account.createEmailPasswordSession(
+          email: email, password: password);
+      return session;
+    } on AppwriteException catch (e) {
+      print(e.message);
+      return null;
+    }
+  }
 }

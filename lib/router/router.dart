@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -29,8 +30,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/login',
         name: Loginpage.name,
         builder: (_, __) => Loginpage(
-              loginfunc: (email, password) {
-                print(Text('$email -- $password'));
+              loginfunc: (email, password) async {
+                final appwriteSession = GetIt.instance.get<Appwriteconf>();
+                final session =
+                    await appwriteSession.createSession(email, password);
+                debugPrint(jsonEncode(session?.toMap() ?? '{}'));
+                print(Text('session id is: ${session?.$id}'));
               },
             ))
   ]);
