@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:learningflutterappwrite/pages/LoginPage.dart';
 import 'package:learningflutterappwrite/type/signupCallback.dart';
 
 class Signupform extends StatelessWidget {
@@ -63,7 +65,15 @@ class Signupform extends StatelessWidget {
                         emailController.text, passwordController.text);
                   }
                 },
-                child: const Text('Créer'))
+                child: const Text('Créer')),
+            Column(
+              children: [
+                Text('Vous avez deja un compte?'),
+                TextButton(
+                    onPressed: () => {context.goNamed(Loginpage.name)},
+                    child: Text('Connectez vous')),
+              ],
+            )
           ],
         ),
       ),
