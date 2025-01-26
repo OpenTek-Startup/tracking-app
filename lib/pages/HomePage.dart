@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:learningflutterappwrite/appwrite/appwriteConf.dart';
 import 'package:learningflutterappwrite/pages/registration.dart';
 
 class Homepage extends StatelessWidget {
@@ -17,10 +19,17 @@ class Homepage extends StatelessWidget {
           child: Column(children: [
             Text('WELCOME TO HOME PAGE'),
             ElevatedButton(
-                onPressed: () {
-                  context.goNamed(Registration.name);
+                onPressed: () async {
+                  final authProvider = GetIt.I.get<Appwriteconf>();
+                  try {
+                    await authProvider.logout(); // Attendre la déconnexion
+                    context.go('/registration'); // Redirection
+                  } catch (e) {
+                    // Gérer l'erreur
+                    print('Erreur lors de la déconnexion: $e');
+                  }
                 },
-                child: Text('Go to registration page'))
+                child: Text('Logout'))
           ]),
         ),
       ]),

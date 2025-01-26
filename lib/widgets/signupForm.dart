@@ -64,6 +64,9 @@ class Signupform extends StatelessWidget {
                     return onPressedLogin(nameController.text,
                         emailController.text, passwordController.text);
                   }
+                  emailController.clear();
+                  passwordController.clear();
+                  nameController.clear();
                 },
                 child: const Text('Créer')),
             Column(

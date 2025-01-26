@@ -41,6 +41,6 @@ class Appwriteconf {
   }
 
   Future<void> logout() async {
-    await account.deleteSession(sessionId: 'current');
+    await account.deleteSession(sessionId:'current');
   }
 }

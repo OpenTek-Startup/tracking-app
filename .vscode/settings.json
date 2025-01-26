@@ -1,3 +1,10 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "cSpell.words": [
+        "appwrite",
+        "Appwriteconf",
+        "learningflutterappwrite",
+        "loginfunc",
+        "Loginpage"
+    ]
 }

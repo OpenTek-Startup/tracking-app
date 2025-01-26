@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:learningflutterappwrite/pages/HomePage.dart';
 import 'package:learningflutterappwrite/pages/registration.dart';
 import 'package:learningflutterappwrite/type/loginCallback.dart';
 
@@ -48,6 +49,9 @@ class Loginform extends StatelessWidget {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(
                           '$emailController.text -- $passwordController.text')));
+                  emailController.clear();
+                  passwordController.clear();
+                  context.goNamed(Homepage.name);
                 },
                 child: Text('Connecter')),
             Row(
