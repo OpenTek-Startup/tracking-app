@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -22,7 +21,7 @@ final routerProvider = Provider<GoRouter>((ref) {
             onsignUp: (name, email, password) async {
               final appwrite = GetIt.instance.get<Appwriteconf>();
               final user = await appwrite.createAccount(name, email, password);
-              print(jsonEncode(user ?? '{}'));
+              print(jsonEncode(user?.toMap() ?? '{}'));
             },
           );
         }),

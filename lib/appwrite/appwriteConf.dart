@@ -24,6 +24,11 @@ class Appwriteconf {
     }
   }
 
+  Future<User?> getAccount() async {
+    final user = await account.get();
+    return user;
+  }
+
   Future<Session?> createSession(String email, String password) async {
     try {
       final session = await account.createEmailPasswordSession(
@@ -33,5 +38,9 @@ class Appwriteconf {
       print(e.message);
       return null;
     }
+  }
+
+  Future<void> logout() async {
+    await account.deleteSession(sessionId: 'current');
   }
 }
