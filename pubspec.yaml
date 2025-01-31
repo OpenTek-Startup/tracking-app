@@ -71,6 +71,11 @@ flutter:
   # svg images asset
       - assets/svg/stat.svg
       - assets/svg/camera.svg
+      - assets/svg/settings.svg
+      - assets/svg/star.svg
+      - assets/svg/profile.svg
+      - assets/svg/feedback.svg
+      - assets/svg/logout.svg
 
   # images(.jpeg, .png, .jpg, etc)
       - assets/images/default_user.jpeg

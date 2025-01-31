@@ -55,8 +55,96 @@ class _DrawerMenuState extends State<DrawerMenu> {
             ),
           ),
           // Ajoutez d'autres éléments de menu
-          ListTile(title: Text("Profil"), onTap: () {}),
-          ListTile(title: Text("Paramètres"), onTap: () {}),
+          SizedBox(
+            height: 10,
+          ),
+
+          ListTile(
+              leading: SvgPicture.asset(
+                'assets/svg/stat.svg',
+                width: 25,
+                height: 25,
+              ),
+              title: Text(
+                "Statistiques",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              ),
+              onTap: () {}),
+          SizedBox(
+            height: 10,
+          ),
+
+          ListTile(
+              leading: SvgPicture.asset(
+                'assets/svg/settings.svg',
+                width: 25,
+                height: 25,
+              ),
+              title: Text(
+                "Paramètres",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              ),
+              onTap: () {}),
+          SizedBox(
+            height: 10,
+          ),
+
+          ListTile(
+              leading: SvgPicture.asset(
+                'assets/svg/star.svg',
+                width: 25,
+                height: 25,
+              ),
+              title: Text(
+                "Notez - nous",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              ),
+              onTap: () {}),
+          SizedBox(
+            height: 10,
+          ),
+
+          ListTile(
+              leading: SvgPicture.asset(
+                'assets/svg/feedback.svg',
+                width: 25,
+                height: 25,
+              ),
+              title: Text(
+                "Feedback",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              ),
+              onTap: () {}),
+          SizedBox(
+            height: 10,
+          ),
+
+          ListTile(
+              leading: SvgPicture.asset(
+                'assets/svg/profile.svg',
+                width: 25,
+                height: 25,
+              ),
+              title: Text(
+                "Profile",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              ),
+              onTap: () {}),
+          ////////////////////
+          SizedBox(
+            height: 80,
+          ),
+          ListTile(
+              leading: SvgPicture.asset(
+                'assets/svg/logout.svg',
+                width: 25,
+                height: 25,
+              ),
+              title: Text(
+                "Deconnecter",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              ),
+              onTap: () {}),
         ],
       ),
     );
