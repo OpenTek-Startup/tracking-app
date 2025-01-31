@@ -1,38 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:go_router/go_router.dart';
-import 'package:learningflutterappwrite/appwrite/appwriteConf.dart';
-import 'package:learningflutterappwrite/pages/registration.dart';
+import 'package:learningflutterappwrite/widgets/drawer/drawer.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   static const String name = 'home';
   const Homepage({super.key});
 
   @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Title(color: Colors.black, child: Text('Home')),
+        backgroundColor: Colors.greenAccent,
       ),
-      body: Column(children: [
-        Center(
-          child: Column(children: [
-            Text('WELCOME TO HOME PAGE'),
-            ElevatedButton(
-                onPressed: () async {
-                  final authProvider = GetIt.I.get<Appwriteconf>();
-                  try {
-                    await authProvider.logout(); // Attendre la déconnexion
-                    context.go('/registration'); // Redirection
-                  } catch (e) {
-                    // Gérer l'erreur
-                    print('Erreur lors de la déconnexion: $e');
-                  }
-                },
-                child: Text('Logout'))
-          ]),
+      drawer: DrawerMenu(),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Row(
+            //   children: [TextButton(onPressed: () {}, child: Text('Folder'))],
+            // ),
+            // Greycontainer(
+            //     child: StreamBuilder(
+            //         stream: appProvider.folderStream,
+            //         builder: (context, snapshot) {
+            //           if (snapshot.connectionState == ConnectionState.waiting) {
+            //             return Center(child: CircularProgressIndicator());
+            //           }
+
+            //           if (snapshot.hasError) {
+            //             return Center(
+            //               child: Text(snapshot.error.toString()),
+            //             );
+            //           }
+
+            //           final folders = snapshot.data ?? [];
+            //           return ListView.builder(
+            //               itemCount: folders.length,
+            //               itemBuilder: (context, index) {
+            //                 final folder = folders[index];
+            //                 return ListTile(
+            //                   title: Text(folder['title']),
+            //                   subtitle: Text(folder['description']),
+            //                 );
+            //               });
+            //         }))
+          ],
         ),
-      ]),
+      )),
     );
   }
 }

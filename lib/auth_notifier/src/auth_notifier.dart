@@ -60,7 +60,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   signup(String email, String name, String password) async {
     try {
-      state = await state.copyWith(
+      state = state.copyWith(
         error: null,
         status: AuthStatus.loading,
         user: null,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learningflutterappwrite/type/loginCallback.dart';
-import 'package:learningflutterappwrite/widgets/loginForm.dart';
+import 'package:learningflutterappwrite/widgets/auth/loginForm.dart';
 
 class Loginpage extends StatefulWidget {
   static const String name = "login";
@@ -20,7 +20,6 @@ class _LoginpageState extends State<Loginpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.all(20),
         children: <Widget>[
           Loginform(
               emailController: _emailController,

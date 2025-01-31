@@ -6,5 +6,6 @@
         "learningflutterappwrite",
         "loginfunc",
         "Loginpage"
-    ]
+    ],
+    "cmake.sourceDirectory": "/home/brown-alden/Documents/workspace/MobileApp/learningflutterappwrite/linux"
 }

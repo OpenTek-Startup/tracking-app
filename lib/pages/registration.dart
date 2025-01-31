@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learningflutterappwrite/type/signupCallback.dart';
-import 'package:learningflutterappwrite/widgets/signupForm.dart';
+import 'package:learningflutterappwrite/widgets/auth/signupForm.dart';
 
 class Registration extends StatefulWidget {
   static const String name = 'registration';
@@ -15,21 +15,20 @@ class _RegistrationState extends State<Registration> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmedPasswordController = TextEditingController();
+  final TextEditingController _confirmedPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[100],
       body: ListView(
-        padding: EdgeInsets.all(20),
         children: <Widget>[
           Signupform(
-            emailController: _emailController, 
-            nameController: _nameController, 
-            passwordController: _passwordController, 
-            confPasswordController: _confirmedPasswordController, 
-            onPressedLogin: widget.onsignUp)
+              emailController: _emailController,
+              nameController: _nameController,
+              passwordController: _passwordController,
+              confPasswordController: _confirmedPasswordController,
+              onPressedLogin: widget.onsignUp)
         ],
       ),
     );
