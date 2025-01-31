@@ -12,37 +12,46 @@ class _DrawerMenuState extends State<DrawerMenu> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: 200,
       backgroundColor: Colors.white70,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(color: Colors.blue),
-            child: Stack(
-              clipBehavior: Clip.none, // <-- Permet aux enfants de dépasser
-              children: [
-                Positioned(
-                  left: 0,
-                  top: -20, // Ajustez selon votre besoin
-                  child: CircleAvatar(
-                    radius: 40,
+            decoration: BoxDecoration(color: Colors.white60),
+            child: Center(
+              child: Stack(
+                alignment: Alignment.center,
+                clipBehavior: Clip.none, // <-- Permet aux enfants de dépasser
+                children: [
+                  // Ajustez selon votre besoin
+                  CircleAvatar(
+                    radius: 50,
                     backgroundImage:
                         AssetImage('assets/images/default_user.jpeg'),
                   ),
-                ),
-                Positioned(
-                  bottom: 10,
-                  right: 10,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset(
-                      'assets/svg/camera.svg',
-                      width: 24,
-                      height: 24,
+                  Positioned(
+                    top: 50,
+                    left: 65,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/svg/camera.svg',
+                        width: 24,
+                        height: 24,
+                      ),
                     ),
                   ),
-                )
-              ],
+                  SizedBox(height: 20),
+                  Positioned(
+                      bottom: -25,
+                      child: Text(
+                        'Username',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      ))
+                ],
+              ),
             ),
           ),
           // Ajoutez d'autres éléments de menu
